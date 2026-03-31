@@ -1,11 +1,17 @@
 <header>
-  <h1>{{ title() }}</h1>
+  <h1 class="text-2xl">{{ title }}</h1>
 </header>
 
-<nav>
-
+<nav class="border border-black m-4">
+  <ul class="flex items-center justify-start gap-4">
+    @for (item of menu; track item.path) {
+      <li class="p-4 hover:bg-black hover:text-white">
+        <a [routerLink]="item.path" routerLinkActive="font-bold">{{ item.label }}</a>
+      </li>
+    }
+  </ul>
 </nav>
 
-<main>
+<main class="m-4 p-4 border border-black">
   <router-outlet />
 </main>
